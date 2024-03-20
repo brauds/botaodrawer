@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="botaodrawer.css">
+    <title>Botao Drawer</title>
+  </head>
+  <body>
+    <header>
+      <span class="toggle-btn closed">=</span>
+      <nav>
+        <ul>
+          <li><a href="#etec">Etec</a></li>
+          <li><a href="#catraca">Catraca</a></li>
+          <li><a href="#sobrenos">Sobre Nós</a></li>
+        </ul>
+      </nav>
+    </header>
+ 
+    <div class="drawer-menu">
+      <span class="toggle-btn">=</span>
+      <ul>
+        <li><a href="#etec">Etec</a></li>
+        <li><a href="#catraca">Catraca</a></li>
+        <li><a href="#sobrenos">Sobre Nós</a></li>
+      </ul>
+    </div>
+ 
+    <script>
+      class Navbar {
+        constructor() {
+          this.toggleBtns = document.querySelectorAll(".toggle-btn");
+          this.drawerMenu = document.querySelector(".drawer-menu");
+          this.isOpen = false;
+          this.toggleBtns.forEach(btn => btn.addEventListener("click", this.toggleNavbar.bind(this)));
+        }
+ 
+        toggleNavbar(event) {
+          this.isOpen = !this.isOpen;
+          if (this.isOpen) {
+            this.drawerMenu.style.left = "0";
+            this.toggleBtns.forEach(btn => btn.textContent = "=");
+          } else {
+            this.drawerMenu.style.left = "-250px";
+            this.toggleBtns.forEach(btn => btn.textContent = "=");
+          }
+        }
+      }
+ 
+      const navbar = new Navbar();
+    </script>
+  </body>
+</html>
